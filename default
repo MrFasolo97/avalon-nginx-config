@@ -1,10 +1,10 @@
-proxy_cache_path /tmp/cache/forever levels=1:2 keys_zone=forever:10m max_size=1g inactive=90d;
+proxy_cache_path /var/cache/forever levels=1:2 keys_zone=forever:10m max_size=10g inactive=90d;
 
-proxy_cache_path /tmp/cache/long levels=1:2 keys_zone=long:10m max_size=1g inactive=60m;
+proxy_cache_path /var/cache/long levels=1:2 keys_zone=long:10m max_size=10g inactive=60m;
 
-proxy_cache_path /tmp/cache/short levels=1:2 keys_zone=short:10m max_size=1g inactive=1m;
+proxy_cache_path /var/cache/short levels=1:2 keys_zone=short:10m max_size=10g inactive=1m;
 
-proxy_cache_path /tmp/cache/nearlive levels=1:2 keys_zone=nearlive:10m max_size=1g inactive=3s;
+proxy_cache_path /var/cache/nearlive levels=1:2 keys_zone=nearlive:10m max_size=10g inactive=3s;
 
 proxy_cache_key "$request_uri";
 
@@ -17,7 +17,7 @@ server {
 
   server_name  avalon.d.tube;
   
-
+	location ~*(/newkeypair){return 301 https://d.tube;}
   #Forever
 	location ~*(/block/|/history/*/)
 	{
@@ -55,7 +55,7 @@ server {
     }
     
   #Near Live 
-  location ~*(/account/|/accounts/|/content/|/count|/history/|/new$|/rewardpool)
+  location ~*(/account/|/accounts/|/content/|/count|/history/|/new|/rewardpool)
   {
     proxy_cache_valid any 3s;
     proxy_cache nearlive;

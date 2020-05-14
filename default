@@ -61,11 +61,4 @@ server {
     proxy_cache_use_stale error timeout http_500 http_502 http_503 http_504;
     proxy_pass              http://[::]:3001;
   }
-
-    listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/avalon.d.tube/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/avalon.d.tube/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
 }

@@ -40,7 +40,7 @@ server {
   }
 
   #Short
-  location ~*(/allminers|/blog/|/distributed/|/feed|/followers|/follows|/hot|/notifications|/schedule|/transact|/trending|/trending/|/history|/oembed/|/opengraph/|/youtube/)
+  location ~*(/allminers|/blog/|/distributed/|/feed|/followers|/follows|/hot|/notifications|/rewards/|/schedule|/supply|/transact|/trending|/trending/|/history|/oembed/|/opengraph/|/youtube/)
   {
     proxy_cache_valid any 1m;
     proxy_cache short;

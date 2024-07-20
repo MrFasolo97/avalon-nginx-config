@@ -52,7 +52,7 @@ server {
   }
   
   #Near Live
-  location ~*(/transactWaitConfirm|/block/|/account/|/accounts/|/content/|/count|/new|/rewardpool)
+  location ~*(/transactWaitConfirm|/block/|/account/|/accounts/|/content/|/count|/new|/rewardpool|/peers)
   {
     proxy_cache_valid any 3s;
     proxy_cache nearlive;
